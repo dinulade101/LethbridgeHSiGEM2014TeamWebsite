@@ -1,0 +1,310 @@
+
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        		<link id="pageStyle" rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.localscroll.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.scrollTo.min.js" type="text/javascript"></script> 
+            <script type="text/javascript">
+                
+                 
+                 function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+                
+                function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+                
+                function myFunction() {
+                     $("body").addClass("animateBody");
+                    var cookieValue = null;
+                    cookieValue = getCookie("projectType");
+                       
+                        if (cookieValue=="2"){
+                             
+                             setCookie("projectType", "1", 365);
+                            makeBees();
+                           
+                        }
+                    if (cookieValue=="1"){
+                            
+                         setCookie("projectType", "2", 365); 
+                            makeBiofilms();
+                          
+                        }
+                   
+                    
+                   
+                    /************introSLide********************/
+                   
+                    
+                   
+                   
+}
+                
+                       function makeBiofilms(){
+                             document.getElementById("projectSwitchIcon").src = "images/Plasmid.png";
+                            document.getElementById("govIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("schoolIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("ComIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("OtherIcon").src = "images/government-building-icon-hi_blue.png";
+                     document.getElementById('pageStyle').setAttribute('href','css/main_biofilms.css');
+                         $("#mainTitleText").text('Biofilms!!!');
+                     $("#coloredTitle").text('Biofilms');
+                    $("#slide1Title").text('Biofilm');
+                    $("#slide1Paragraph").text('For years, bacterial biofilms have been a cause for concern in medicine. Biofilms are comprised of colonial microorganisms that can adhere to almost any surface with adequate moisture and nutrients. Biofilms often harbour pathogens, and can be extremely problematic in clinical settings. 65% of all hospital acquired infections can be attributed to pathogenic biofilms. Current methods to destroy biofilms include antimicrobial agents and hydraulic flushing. These are ineffective because biofilms are surrounded by a matrix of sugars and DNA. We intend to create an all-purpose biological counterattack capable of dispersing and eliminating a wide variety of biofilms by utilizing enzymes to destroy the structures within. This will be achieved through the secretion of dextranase, which degrades the exopolymeric matrix, and DNase, that targets the extracellular DNA responsible for maintaining biofilm structure. This double phased attack will be highly efficient compared to current removal methods.');
+                    document.getElementById("projectIcon").src ="images/Plasmid.png";
+                  
+                    document.getElementById("slide1Image").src = "images/408.jpg";
+                    $("#mainTitleText").style.color("#31B2DE");
+                }
+                function makeBees(){
+                      document.getElementById('pageStyle').setAttribute('href','css/main.css');
+                      document.getElementById("govIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("schoolIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("ComIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("OtherIcon").src = "images/government-building-icon-hi_yellow.png";
+                   
+        
+                   
+                    document.getElementById("projectSwitchIcon").src = "images/plainicon.com-48232-512px-7b5.png";
+                    document.getElementById("slide1Image").src = "images/honeybeeinflight.jpg";
+                    $("#mainTitleText").style.color("#FFE545");
+                }
+                
+                     
+               $(document).ready(function() {
+                    document.addEventListener("touchstart", function(){}, true);
+                   
+    var s = $(".sideBarContent");
+    var pos = s.position();   
+            
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();  
+           
+        if (windowpos >= pos.top+450) {
+            s.addClass("stick");
+            
+        } else {
+            s.removeClass("stick");
+            
+        }
+      
+    });  
+                   
+                   var cookieVal = getCookie("projectType");
+                       
+                        if (cookieVal=="2"){
+                            makeBiofilms();
+                        }
+                        if (cookieVal=="1"){
+                            makeBees();
+                        }
+});
+                
+    $(document).ready(function(){
+                     var aChildren = $(".sideBarContent li").children();
+                   var aArray = [];
+                   for (var i=0; i<aChildren.length; i++){
+                        var aChild = aChildren[i];
+                       var ahref = $(aChild).attr('href');
+                       aArray.push(ahref);
+                   }
+            $(window).scroll(function(){
+                var windowPos2 = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var docHeight = $(document).height;
+                
+                for (var i=0; i < aArray.length; i++){
+                    var theID = aArray[i];
+                    var divPos = $(theID).offset().top;
+                    var divHeight = $(theID).height();
+                    
+                    if (windowPos2+130 >= divPos && windowPos2+130 < (divPos + divHeight)){
+                        $("a[href='" + theID + "']").addClass("sideBarItemActive"); 
+                        
+                    }
+                    else{
+                        $("a[href='" +theID + "']").removeClass("sideBarItemActive");    
+                    }
+                } 
+                
+                if (windowPos2 + windowHeight == docHeight){
+                    if (!$(".sideBarContent li:last-child a").hasClass("sideBarItemActive")){
+                     var navActiveCurrent = $(".sideBarItemActive").attr("href");
+                        $("a [href='" + navActiveCurrent + "']").removeClass("sideBarItemActive");
+                        $(".sideBarContent li:last-child a").addClass("sideBarItemActive");
+                        
+                    }
+                }
+                });
+    });
+ 
+                $(document).ready(function() {
+    
+                    var s = $(".menu");
+    var pos = s.position();   
+            
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();  
+           
+        if (windowpos >= 100) {
+            
+            s.addClass("makeNavBarColor");
+            
+        } else {
+           
+            s.removeClass("makeNavBarColor");
+            
+        }
+      
+    });               
+});
+        </script>
+	</head>
+
+	<body class="">
+        <nav class="navbar navbar-inverse navbar-fixed-top menu" id="">
+            <div class="container-fluid">
+                <!--Lethbridge HS iGEM Logo -->
+                <div class="navbar-header">
+                    <a href="#" id="nav-head" class="navbar-brand" style="margin-top:8px;"><h1>Lethbridge iGEM       </h1></a>
+                
+
+                <button class= "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                </div>
+                <!-- Nav Bar Menu Items -->
+                <div class="collapse navbar-collapse navHeaderCollapse">
+                    <ul class="nav navbar-nav navbar-left nav-pills" id="navItems" style="">
+                        <li class=""><a href="index.html">Home</a></li>
+                      
+                        <li><a href="humanpractices.html">Human Practices</a></li>
+                        <li class= "dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle = "dropdown">Project<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="project.html">Overview</a>
+                                    <a href="#">Math Model</a>
+                                </li>
+                            </ul>    
+                        </li>
+                        <li class="active"><a href="software.html">Software</a></li>
+                        <li><a href="team.html">Team</a></li>
+                         <li><a href="team.html"><img src="images/Wageningen_UR_igem_bw.png" width="50px" height="45px" style="margin-top:-20%; margin-bottom:-10%;"></a></li>
+                        <li><div  onclick="myFunction()" class="navBarSwitchButton"><img id="projectSwitchIcon" src="images/plainicon.com-48232-512px-7b5.png" class="img-responsive"></div> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <div class="jumbotron" id="titleSlide_software">
+                    <img src="images/Iphone.png" width="150" height="100" class="img-responsive" id="titleImg">
+                    <p id="pageTitleText">Software <br></p><p id="pageSubtitleText"><span>An overview of our project</span></p>
+                
+                <div class="jumbotron" id="subPagesSlide">
+                <div class="container-fluid" style="">
+        <div class="row" style="margin-left:auto; margin-right:auto;">
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                    <img id="govIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>School</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                   <img id="schoolIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>Government</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                  <img id="ComIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>Community</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                    <img id="OtherIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>SOmething</p>
+                </div>
+            </div>
+        </div>
+        </div>
+            </div>
+            </div> 
+         
+                <div class="container-fluid" id="regularPageBody">
+                    <div class="row">
+                        <div class="col-md-2" id="mainBodySideBar">
+                            <div class="sideBarContent">
+                                <ul>
+                                    <li><a href="#section1">Seciotn 1</a></li>
+                                    <li><a href="#section2">Seciotn 2</a></li>
+                                    <li><a href="#section3">Seciotn 3</a></li>
+                                    <li><a href="#section4">Seciotn 4</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-12">
+                            <section id="section1">
+                            <h1>A sample title</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut dignissim lorem. Fusce eu nunc mi. Nullam ac enim vel nunc lobortis commodo sit amet dignissim tellus. Quisque fringilla urna ac laoreet tristique. Proin vel lacus sollicitudin, pulvinar orci in, vehicula tortor. Ut gravida sodales mauris, pretium maximus risus vulputate a. Aliquam dolor eros, accumsan non lorem nec, elementum eleifend erat. Nunc volutpat purus in vestibulum semper. Quisque pharetra mollis elit id malesuada. Quisque vitae pharetra ligula. Aliquam malesuada dapibus mi, quis varius ligula sagittis non.<br><br>
+
+Aliquam euismod, nulla at pulvinar fringilla, lectus dolor blandit enim, eget condimentum dui felis vitae libero. Nullam pulvinar metus ut sodales pretium. Donec lacinia ullamcorper est in ullamcorper. Suspendisse posuere, orci a commodo sagittis, odio odio accumsan urna, nec varius sapien ex ut dolor. Etiam vitae placerat metus. Vivamus condimentum vel purus quis iaculis. Praesent imperdiet neque eget magna pretium, vestibulum sagittis ligula efficitur. In vitae velit nisl. Etiam et tortor sit amet leo commodo tempor. Morbi sodales auctor turpis, non condimentum ipsum gravida sit amet. Praesent vitae nisi libero. Morbi rutrum lacus lacus, et vestibulum ligula sollicitudin in. Donec ligula ante, ornare et dui eget, vestibulum rhoncus elit. Pellentesque sodales lectus mauris, sit amet porttitor ligula dignissim ut. Vestibulum ut luctus nibh. In sed hendrerit elit.</p></section>
+
+                            <section id="section2"><h1> Another title </h1><p>
+Duis aliquam lobortis magna in rhoncus. Quisque sed faucibus nulla, sit amet euismod est. Aliquam luctus metus nibh. Curabitur a elit vitae risus congue interdum. Fusce accumsan eros sapien, at tincidunt lacus porttitor ac. Pellentesque suscipit condimentum nibh, non auctor ligula consequat non. Aenean at nisi volutpat, viverra erat nec, interdum ipsum. Nullam mattis, mi condimentum bibendum dignissim, est ante dictum felis, sit amet fermentum metus est vel est. Donec consectetur ac nisi nec scelerisque. Fusce faucibus ultrices ex. Donec ac nunc interdum, aliquam nibh sagittis, sollicitudin purus. Sed cursus a dolor et sagittis. Curabitur eget semper risus.<br>
+
+Maecenas interdum arcu nec arcu dignissim vulputate. Duis porttitor rhoncus dolor, in pharetra eros mollis quis. Nam ut laoreet metus, ac lacinia turpis. Pellentesque mattis lacus nunc, vel tincidunt dolor hendrerit sit amet. Nulla mattis non enim at faucibus. Donec rutrum risus quis dui tincidunt posuere. Sed fermentum leo sed dapibus hendrerit. Integer sit amet diam et turpis facilisis tristique. Aliquam erat volutpat. Suspendisse vel egestas orci. Cras quis arcu malesuada purus hendrerit lobortis. Donec ullamcorper est nec leo molestie volutpat eu at nibh. Morbi fringilla a sem hendrerit hendrerit. Ut vitae sagittis massa, ac commodo nisl. Cras vel erat eu nunc maximus convallis. Vestibulum nec auctor ligula, sit amet tristique dui.<br>
+
+Suspendisse urna purus, laoreet vel pellentesque quis, commodo vitae est. Integer vitae erat sollicitudin, ultricies nisi ac, vulputate nisl. Vestibulum luctus quis ex a ullamcorper. Sed tincidunt mattis tortor sed fermentum. Nunc dictum felis varius mi tempor rhoncus. Aliquam vel tempor metus. Sed sagittis erat at risus lacinia bibendum. Pellentesque volutpat vel nulla sed gravida.</p></section>
+
+                            <section id="section3"><h2> Subtitle</h2>
+<p>Duis finibus vulputate urna, sit amet pretium nisi lobortis eget. Aliquam lacinia nisi sed ex varius tempus. Phasellus euismod volutpat turpis quis semper. Nullam laoreet nibh quam, vel aliquet nulla suscipit nec. Morbi ut tempor est, ut placerat tellus. Etiam eu eros et nunc sollicitudin consequat in et velit. Vivamus pulvinar sed leo eget hendrerit. Vivamus pulvinar magna ut auctor tristique. Donec sollicitudin dignissim malesuada. Aliquam placerat, purus in commodo elementum, lorem arcu sodales tortor, ac eleifend massa quam vel sapien. Praesent dolor sapien, iaculis a bibendum a, luctus quis quam. Aliquam non dignissim leo. Maecenas aliquam nibh maximus neque ornare lacinia. Fusce commodo odio at mauris venenatis fringilla. Sed ultricies elit tellus, eu fringilla mauris vestibulum eget. Etiam dictum cursus tellus vel interdum.<br>
+
+Aliquam vulputate bibendum velit, vitae ultricies erat feugiat quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam pulvinar, metus a mattis dictum, tellus massa aliquet leo, at lacinia leo dui quis libero. Sed tempor tortor eget felis hendrerit, vel fringilla libero varius. Cras quam quam, molestie nec ultrices quis, egestas sit amet odio. Praesent erat mi, consequat nec eros quis, ullamcorper tincidunt justo. Aenean tristique vestibulum ex id tristique. Nam auctor placerat metus id varius. Nulla varius a purus in hendrerit. Proin dictum odio at enim commodo dapibus. Proin rhoncus risus at porttitor consequat. Phasellus justo lorem, rutrum vel sem ut, varius tincidunt sapien. Sed imperdiet in eros sed placerat. In porttitor eget augue id facilisis.<br>
+
+Vestibulum fringilla tellus velit, eu dignissim ante fermentum vel. Phasellus vitae augue eget sapien imperdiet mattis sed vehicula ipsum. Nam quis ante vulputate, consectetur metus a, elementum sem. Vivamus suscipit sagittis accumsan. Nunc luctus elit quam, at imperdiet diam dapibus quis. In eget enim fringilla, dignissim felis in, pharetra mi. Nulla a elit at sapien venenatis rhoncus ut nec odio. Mauris dictum fermentum varius. Praesent euismod dui id malesuada tincidunt. Donec mattis mauris eget risus congue aliquet. Vestibulum rutrum interdum fermentum. Etiam dictum lobortis lacus, aliquam maximus dolor luctus non. Etiam vel rutrum lectus, eget consequat velit.</p></section>
+                            <section id="section4"><h1>A sample title</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut dignissim lorem. Fusce eu nunc mi. Nullam ac enim vel nunc lobortis commodo sit amet dignissim tellus. Quisque fringilla urna ac laoreet tristique. Proin vel lacus sollicitudin, pulvinar orci in, vehicula tortor. Ut gravida sodales mauris, pretium maximus risus vulputate a. Aliquam dolor eros, accumsan non lorem nec, elementum eleifend erat. Nunc volutpat purus in vestibulum semper. Quisque pharetra mollis elit id malesuada. Quisque vitae pharetra ligula. Aliquam malesuada dapibus mi, quis varius ligula sagittis non.<br><br>
+
+Aliquam euismod, nulla at pulvinar fringilla, lectus dolor blandit enim, eget condimentum dui felis vitae libero. Nullam pulvinar metus ut sodales pretium. Donec lacinia ullamcorper est in ullamcorper. Suspendisse posuere, orci a commodo sagittis, odio odio accumsan urna, nec varius sapien ex ut dolor. Etiam vitae placerat metus. Vivamus condimentum vel purus quis iaculis. Praesent imperdiet neque eget magna pretium, vestibulum sagittis ligula efficitur. In vitae velit nisl. Etiam et tortor sit amet leo commodo tempor. Morbi sodales auctor turpis, non condimentum ipsum gravida sit amet. Praesent vitae nisi libero. Morbi rutrum lacus lacus, et vestibulum ligula sollicitudin in. Donec ligula ante, ornare et dui eget, vestibulum rhoncus elit. Pellentesque sodales lectus mauris, sit amet porttitor ligula dignissim ut. Vestibulum ut luctus nibh. In sed hendrerit elit.</p>
+
+                            <h1> Another title </h1><p>
+Duis aliquam lobortis magna in rhoncus. Quisque sed faucibus nulla, sit amet euismod est. Aliquam luctus metus nibh. Curabitur a elit vitae risus congue interdum. Fusce accumsan eros sapien, at tincidunt lacus porttitor ac. Pellentesque suscipit condimentum nibh, non auctor ligula consequat non. Aenean at nisi volutpat, viverra erat nec, interdum ipsum. Nullam mattis, mi condimentum bibendum dignissim, est ante dictum felis, sit amet fermentum metus est vel est. Donec consectetur ac nisi nec scelerisque. Fusce faucibus ultrices ex. Donec ac nunc interdum, aliquam nibh sagittis, sollicitudin purus. Sed cursus a dolor et sagittis. Curabitur eget semper risus.<br>
+
+Maecenas interdum arcu nec arcu dignissim vulputate. Duis porttitor rhoncus dolor, in pharetra eros mollis quis. Nam ut laoreet metus, ac lacinia turpis. Pellentesque mattis lacus nunc, vel tincidunt dolor hendrerit sit amet. Nulla mattis non enim at faucibus. Donec rutrum risus quis dui tincidunt posuere. Sed fermentum leo sed dapibus hendrerit. Integer sit amet diam et turpis facilisis tristique. Aliquam erat volutpat. Suspendisse vel egestas orci. Cras quis arcu malesuada purus hendrerit lobortis. Donec ullamcorper est nec leo molestie volutpat eu at nibh. Morbi fringilla a sem hendrerit hendrerit. Ut vitae sagittis massa, ac commodo nisl. Cras vel erat eu nunc maximus convallis. Vestibulum nec auctor ligula, sit amet tristique dui.<br>
+
+Suspendisse urna purus, laoreet vel pellentesque quis, commodo vitae est. Integer vitae erat sollicitudin, ultricies nisi ac, vulputate nisl. Vestibulum luctus quis ex a ullamcorper. Sed tincidunt mattis tortor sed fermentum. Nunc dictum felis varius mi tempor rhoncus. Aliquam vel tempor metus. Sed sagittis erat at risus lacinia bibendum. Pellentesque volutpat vel nulla sed gravida.</p>
+
+                            <h2> Subtitle</h2>
+<p>Duis finibus vulputate urna, sit amet pretium nisi lobortis eget. Aliquam lacinia nisi sed ex varius tempus. Phasellus euismod volutpat turpis quis semper. Nullam laoreet nibh quam, vel aliquet nulla suscipit nec. Morbi ut tempor est, ut placerat tellus. Etiam eu eros et nunc sollicitudin consequat in et velit. Vivamus pulvinar sed leo eget hendrerit. Vivamus pulvinar magna ut auctor tristique. Donec sollicitudin dignissim malesuada. Aliquam placerat, purus in commodo elementum, lorem arcu sodales tortor, ac eleifend massa quam vel sapien. Praesent dolor sapien, iaculis a bibendum a, luctus quis quam. Aliquam non dignissim leo. Maecenas aliquam nibh maximus neque ornare lacinia. Fusce commodo odio at mauris venenatis fringilla. Sed ultricies elit tellus, eu fringilla mauris vestibulum eget. Etiam dictum cursus tellus vel interdum.<br>
+
+Aliquam vulputate bibendum velit, vitae ultricies erat feugiat quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam pulvinar, metus a mattis dictum, tellus massa aliquet leo, at lacinia leo dui quis libero. Sed tempor tortor eget felis hendrerit, vel fringilla libero varius. Cras quam quam, molestie nec ultrices quis, egestas sit amet odio. Praesent erat mi, consequat nec eros quis, ullamcorper tincidunt justo. Aenean tristique vestibulum ex id tristique. Nam auctor placerat metus id varius. Nulla varius a purus in hendrerit. Proin dictum odio at enim commodo dapibus. Proin rhoncus risus at porttitor consequat. Phasellus justo lorem, rutrum vel sem ut, varius tincidunt sapien. Sed imperdiet in eros sed placerat. In porttitor eget augue id facilisis.<br>
+
+Vestibulum fringilla tellus velit, eu dignissim ante fermentum vel. Phasellus vitae augue eget sapien imperdiet mattis sed vehicula ipsum. Nam quis ante vulputate, consectetur metus a, elementum sem. Vivamus suscipit sagittis accumsan. Nunc luctus elit quam, at imperdiet diam dapibus quis. In eget enim fringilla, dignissim felis in, pharetra mi. Nulla a elit at sapien venenatis rhoncus ut nec odio. Mauris dictum fermentum varius. Praesent euismod dui id malesuada tincidunt. Donec mattis mauris eget risus congue aliquet. Vestibulum rutrum interdum fermentum. Etiam dictum lobortis lacus, aliquam maximus dolor luctus non. Etiam vel rutrum lectus, eget consequat velit.</p></section>
+                        </div>
+                        
+                             
+                    </div>
+                    </div>
+     
+    </body>
+</html>

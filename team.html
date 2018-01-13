@@ -1,0 +1,805 @@
+
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        		<link id="pageStyle" rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.localscroll.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.scrollTo.min.js" type="text/javascript"></script> 
+            <script type="text/javascript">
+                
+                 function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+                
+                function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+                
+                function myFunction() {
+                     $("body").addClass("animateBody");
+                    var cookieValue = null;
+                    cookieValue = getCookie("projectType");
+                       
+                        if (cookieValue=="2"){
+                             
+                             setCookie("projectType", "1", 365);
+                            makeBees();
+                           
+                        }
+                    if (cookieValue=="1"){
+                            
+                         setCookie("projectType", "2", 365); 
+                            makeBiofilms();
+                          
+                        }
+                   
+                    
+                   
+                    /************introSLide********************/
+                   
+                    
+                   
+                   
+}
+                
+                       function makeBiofilms(){
+                             document.getElementById("projectSwitchIcon").src = "images/Plasmid.png";
+                            document.getElementById("govIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("schoolIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("ComIcon").src = "images/government-building-icon-hi_blue.png";
+                           document.getElementById("OtherIcon").src = "images/government-building-icon-hi_blue.png";
+                     document.getElementById('pageStyle').setAttribute('href','css/main_biofilms.css');
+                         $("#mainTitleText").text('Biofilms!!!');
+                     $("#coloredTitle").text('Biofilms');
+                    $("#slide1Title").text('Biofilm');
+                    $("#slide1Paragraph").text('For years, bacterial biofilms have been a cause for concern in medicine. Biofilms are comprised of colonial microorganisms that can adhere to almost any surface with adequate moisture and nutrients. Biofilms often harbour pathogens, and can be extremely problematic in clinical settings. 65% of all hospital acquired infections can be attributed to pathogenic biofilms. Current methods to destroy biofilms include antimicrobial agents and hydraulic flushing. These are ineffective because biofilms are surrounded by a matrix of sugars and DNA. We intend to create an all-purpose biological counterattack capable of dispersing and eliminating a wide variety of biofilms by utilizing enzymes to destroy the structures within. This will be achieved through the secretion of dextranase, which degrades the exopolymeric matrix, and DNase, that targets the extracellular DNA responsible for maintaining biofilm structure. This double phased attack will be highly efficient compared to current removal methods.');
+                    document.getElementById("projectIcon").src ="images/Plasmid.png";
+                  
+                    document.getElementById("slide1Image").src = "images/408.jpg";
+                    $("#mainTitleText").style.color("#31B2DE");
+                }
+                function makeBees(){
+                      document.getElementById('pageStyle').setAttribute('href','css/main.css');
+                      document.getElementById("govIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("schoolIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("ComIcon").src = "images/government-building-icon-hi_yellow.png";
+                           document.getElementById("OtherIcon").src = "images/government-building-icon-hi_yellow.png";
+                   
+        
+                   
+                    document.getElementById("projectSwitchIcon").src = "images/plainicon.com-48232-512px-7b5.png";
+                    document.getElementById("slide1Image").src = "images/honeybeeinflight.jpg";
+                    $("#mainTitleText").style.color("#FFE545");
+                }
+                
+                $(document).ready(function() {
+                    
+  $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+                    var s = $(".menu");
+    var pos = s.position();   
+            
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();  
+           
+        if (windowpos >= 100) {
+            
+            s.addClass("makeNavBarColor");
+            
+        } else {
+           
+            s.removeClass("makeNavBarColor");
+            
+        }
+      
+    });               
+});
+     
+                
+               $(document).ready(function() {
+                   $('.bio-slide').addClass('removeTeamPopUpStart');
+                   $('.bio-slide').addClass('removeTeamPopUp');
+                   $('.team-member img').click(function(){
+
+                       var parent = $(this).parent();
+                       var popUp = $(parent).next();
+                       var selected_member = $(this).data('type');
+                    
+                        
+                        $('.bio-slide.'+selected_member+'').removeClass('removeTeamPopUp');
+                        $('.bio-slide.'+selected_member+'').removeClass('removeTeamPopUpStart');
+                       $('.bio-slide.'+selected_member+'').addClass('activeTeamPopUp');
+                        
+                       $('.dark-cover').addClass('display-dark-cover');
+                                    
+                   });
+                   
+                   $('.exit_bio').click(function(){
+
+                       var parent = $(this).parent();
+                       var popUp = $(parent).next();
+                       var selected_member = $(this).data('type');
+                      
+
+                        $('.bio-slide.'+selected_member+'').addClass('removeTeamPopUp');
+                       
+                       $('.dark-cover').removeClass('display-dark-cover');
+                                   
+                   });
+                   
+                    document.addEventListener("touchstart", function(){}, true);
+                   
+    var s = $(".sideBarContent");
+    var pos = s.position();   
+            
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();  
+           
+        if (windowpos >= pos.top+450) {
+            s.addClass("stick");
+            
+        } else {
+            s.removeClass("stick");
+            
+        }
+      
+    });  
+                    var cookieVal = getCookie("projectType");
+                       
+                        if (cookieVal=="2"){
+                            makeBiofilms();
+                        }
+                        if (cookieVal=="1"){
+                            makeBees();
+                        }
+});
+                
+    $(document).ready(function(){
+                     var aChildren = $(".sideBarContent li").children();
+                   var aArray = [];
+                   for (var i=0; i<aChildren.length; i++){
+                        var aChild = aChildren[i];
+                       var ahref = $(aChild).attr('href');
+                       aArray.push(ahref);
+                   }
+            $(window).scroll(function(){
+                var windowPos2 = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var docHeight = $(document).height;
+                
+                for (var i=0; i < aArray.length; i++){
+                    var theID = aArray[i];
+                    var divPos = $(theID).offset().top;
+                    var divHeight = $(theID).height();
+                    
+                    if (windowPos2+130 >= divPos && windowPos2+130 < (divPos + divHeight)){
+                        $("a[href='" + theID + "']").addClass("sideBarItemActive"); 
+                        
+                    }
+                    else{
+                        $("a[href='" +theID + "']").removeClass("sideBarItemActive");    
+                    }
+                } 
+                
+                if (windowPos2 + windowHeight == docHeight){
+                    if (!$(".sideBarContent li:last-child a").hasClass("sideBarItemActive")){
+                     var navActiveCurrent = $(".sideBarItemActive").attr("href");
+                        $("a [href='" + navActiveCurrent + "']").removeClass("sideBarItemActive");
+                        $(".sideBarContent li:last-child a").addClass("sideBarItemActive");
+                        
+                    }
+                }
+                });
+    });
+ 
+                
+        </script>
+	</head>
+
+	<body class="body_team">
+        <nav class="navbar navbar-inverse navbar-fixed-top menu" id="">
+            <div class="container-fluid">
+                <!--Lethbridge HS iGEM Logo -->
+                <div class="navbar-header">
+                    <a href="#" id="nav-head" class="navbar-brand" style="margin-top:8px;"><h1>Lethbridge iGEM       </h1></a>
+                
+
+                <button class= "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                </div>
+                <!-- Nav Bar Menu Items -->
+                <div class="collapse navbar-collapse navHeaderCollapse">
+                    <ul class="nav navbar-nav navbar-left nav-pills" id="navItems" style="">
+                        <li class=""><a href="index.html">Home</a></li>
+                     
+                        <li><a href="humanpractices.html">Human Practices</a></li>
+                        <li class= "dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle = "dropdown">Project<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="project.html">Overview</a>
+                                    <a href="#">Math Model</a>
+                                </li>
+                            </ul>    
+                        </li>
+                        <li><a href="software.html">Software</a></li>
+                        <li class="active"><a href="team.html">Team</a></li>
+                        <li><a href="team.html"><img src="images/Wageningen_UR_igem_bw.png" width="50px" height="45px" style="margin-top:-20%; margin-bottom:-10%;"></a></li>
+                        <li><div  onclick="myFunction()" class="navBarSwitchButton"><img id="projectSwitchIcon" src="images/plainicon.com-48232-512px-7b5.png" class="img-responsive"></div> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+            <div class="jumbotron" id="titleslide_team">
+                    <img src="images/Team%20Icon.png" width="150" height="100" class="img-responsive" id="titleImg">
+                    <p id="pageTitleText">Team <br></p><p id="pageSubtitleText"><span>An overview of our project</span></p>
+                
+                <div class="jumbotron" id="subPagesSlide">
+                <div class="container-fluid" style="">
+        <div class="row" style="margin-left:auto; margin-right:auto;">
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                    <img id="govIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>School</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                   <img id="schoolIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>Government</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                  <img id="ComIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>Community</p>
+                </div>
+            </div>  
+            <div class="col-md-3 col-xs-6">
+                <div class="sub_Page_Button">
+                    <img id="OtherIcon" src="images/government-building-icon-hi_yellow.png" class="img-responsive" width=30px height=30px>
+                    <p>SOmething</p>
+                </div>
+            </div>
+        </div>
+        </div>
+            </div>
+            </div>  
+         
+                <div class="container-fluid" id="regularPageBody">
+                            <section id="section1">
+                            <h1>Team</h1><br>
+ <div class="row teamrow">
+ 
+          <div class="col-md-3 col-sm-4 col-xs-6 team-member">
+						<img data-type="member-dinula" src="images/team/dinula1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/dinula2.jpg'" onmouseout="this.src='images/team/dinula1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+						<img data-type="member-sydnee" src="images/team/sydnee1.jpg" class="img-responsive" width="230px" height="300px"  onmouseover="this.src='images/team/sydnee2.jpg'" onmouseout="this.src='images/team/sydnee1.jpg'" alt="Image could not load.">
+            </div>
+        
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-jon" src="images/team/jon1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/jon2.jpg'" onmouseout="this.src='images/team/jon1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-eyram" src="images/team/eyram1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/eyram2.jpg'" onmouseout="this.src='images/team/eyram1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-ronja" src="images/team/ronja1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/ronja2.jpg'" onmouseout="this.src='images/team/ronja1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-jessica" src="images/team/jessica1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/jessica2.jpg'" onmouseout="this.src='images/team/jessica1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-tiffanyt" src="images/team/tiffanyt1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/tiffanyt2.jpg'" onmouseout="this.src='images/team/tiffanyt1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-madeson" src="images/team/maddi1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/maddi2.jpg'" onmouseout="this.src='images/team/maddi1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-tdang" src="images/team/no-image.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/no-image.jpg'" onmouseout="this.src='images/team/no-image.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-anileen" src="images/team/no-image.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/no-image.jpg'" onmouseout="this.src='images/team/no-image.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-marissa" src="images/team/marissa1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/marissa2.jpg'" onmouseout="this.src='images/team/marissa1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-ross" src="images/team/ross1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/ross2.jpg'" onmouseout="this.src='images/team/ross1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-sunny" src="images/team/sunny1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/sunny2.jpg'" onmouseout="this.src='images/team/sunny1.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-landon" src="images/team/no-image.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/no-image.jpg'" onmouseout="this.src='images/team/no-image.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-kaatje" src="images/team/no-image.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/no-image.jpg'" onmouseout="this.src='images/team/no-image.jpg'" alt="Image could not load.">
+            </div>
+			
+			<div class="col-md-3 col-sm-4 col-xs-6 team-member">
+					<img data-type="member-sam" src="images/team/sam1.jpg" class="img-responsive" width="230px" height="300px" onmouseover="this.src='images/team/sam2.jpg'" onmouseout="this.src='images/team/sam1.jpg'" alt="Image could not load.">
+            </div>
+
+        </div>
+                     <div class="dark-cover">
+                    </div> 
+    <!----------------------Slide out bar------------------------------------>
+                     
+                           <div class="bio-slide member-dinula">
+                               
+                                    <h1 data-type="member-dinula" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/P1030830.JPG" class="img-responsive" width="230px" height="300px" alt="Image of Sample 1 could not load.">
+                               
+                               <div class="bio-slide-content">
+								<h1>Meet Dinula De Silva</h1>
+							<div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                   </div>
+								</div>
+								<p>I am a grade 10 student at Winston Churchill High School. I enjoy programming, playing the guitar, and watching movies. When I’m not stuck indoors, I like going running and biking. I joined iGEM because the feats of synthetic biology fascinated me and I wanted to learn more about the processes involved. I additionally wanted to develop my computer programming skills by working on the wiki and software aspect of the competition.
+								</p>  </div>
+                            
+                               
+                               <div class="row">
+									<div class="col-md-6">
+                               <img src="images/team/dinula2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+									</div>
+									<div class="col-md-6">
+                                       <div class="quote_div">
+                               <p class="quote">I wish I were adenine, because then I could get paired with U ;)</p></div>
+                                       </div>
+                                   </div>
+                            </div>
+							
+							
+							<div class="bio-slide member-sydnee">
+                                    <h1 data-type="member-sydnee" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/team/cover/sydnee.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Sydnee Calhoun</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                   </div>
+                               </div>
+                                   <p>Hi my name is Sydnee and I am in grade 12 at Winston Churchill High School. I joined iGEM because I love learning about science and I enjoy the sciences in school. In the fall, I am attending the University of Lethbridge, majoring in Psychology and Biological Sciences. Outside of school I enjoy playing in band, reading, and teaching skating.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/sydnee2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">According the the second law of thermodynamics, you're supposed to share your hotness with me.</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-jon">
+                                    <h1 data-type="member-jon" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Jonathan Kwan</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hi, I'm Jonathan, a grade 10 student at the Lethbridge Collegiate Institute. I enjoy playing the trombone in my school's concert and jazz bands, and I also play piano outside of school. I joined iGEM because I wanted to learn more about biology and working in a lab. After high school, I plan to study either biochemistry or neuroscience, while hopefully pursuing music in my spare time.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/jon2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">Even if there wasn't gravity on earth, I'd still fall for you ;)</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-eyram">
+                                    <h1 data-type="member-eyram" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Eyram Asem</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Howdy! My name is Eyram and I am in grade 11 at Winston Churchill High School. I joined iGem because I thought that it would be a great opportunity to gain lab experience, learn about synthetic biology, and meet some groovy people; all of which happened! I love reading novels, hanging out with my friends, eating food, and having spontaneous dance parties (with only myself present of course).  I hate the sound of Styrofoam, wearing my glasses, and waking up late.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/eyram2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You're so hot, you might be the cause of global warming ;)</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-ronja">
+                                    <h1 data-type="member-ronja" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Ronja Kothe</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hello! I’m Ronja Kothe, a student at Winston Churchill High School. This is my second year in iGEM and I have had an amazing time. I joined iGEM because I find the field of synthetic biology very fascinating. I also want to gain more experience in lab work, which is my favourite aspect of iGEM. However, the Human Practices component of iGEM interests me very much as well. In the future I would like to continue to perform experiments and venture out into the biomedical field. In addition to iGEM, I also enjoy playing the clarinet and going camping with my fellow Girl Guides.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/ronja2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You must be made out of fluorine, iodine and neon because you are FINe.</p></div>
+                                       </div>
+								</div>
+							</div>
+                        
+							<div class="bio-slide member-jessica">
+                                    <h1 data-type="member-jessica" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Jessica Semmelrock</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Jessica Semmelrock. I am seventeen years old. Art and science interest me, which is why I plan to continue studying the subjects in post secondary. I joined the Lethbridge iGEM team because of the unique experience it offers. The opportunity came up a short while after I discovered what synthetic biology is and I was psyched to learn more. It is incredible that a team of high school students and a few advisors can create innovative solutions to world problems. I love getting involved in various activities, including sports, volunteering, and visual arts. A belief I hold close is that learning is the best part of any activity, which makes IGEM all the better. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/jessica2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">They told me to choose a chemistry themed pick-up line, but all the good ones argon.</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-tiffanyt">
+                                    <h1 data-type="member-tiffanyt" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Tiffany Trinh</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hi my name is Tiffany! I am in grade 12 at Winston Churchill High School. I joined iGEM because I love learning about science and my favourite subject in school is biology. My hobbies include sewing, playing badminton, volunteering and playing the piano.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/tiffanyt2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You're so hot you denature my proteins.</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-madeson">
+                                    <h1 data-type="member-madeson" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Madeson Singh</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Madeson, I am going into grade 12 at Chinook High school. In my free time I enjoy drawing, painting, and pretty much anything artsy. My favorite things about iGEM was learning more and getting a hands on approach with synthetic biology, as well as getting to know new people. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/maddi2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">I wish your name was Avogadro, because then I would already know your number.</p></div>
+                                       </div>
+								</div>
+							</div>
+							
+							<div class="bio-slide member-tdang">
+                                    <h1 data-type="member-tdang" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Tiffany Dang</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Heyos mayos! My name is Tiffany Dang. This fall I will be attending the Schulich School of Engineering at the University of Calgary for a degree in chemical and biomedical engineering.I joined iGEM again because I continue to be intrigued with its novelty. Genetic engineering combines scientific research, engineering principles and imagination to find a new perspective to currently unsolvable problems. iGEM has given me the experience to be a part of this process while making friends along the way. Outside of iGEM, I like being active playing rugby, racquet sports, hiking, and rock climbing. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/sample1a.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You're so hot you denature my proteins.</p></div>
+                                       </div>
+                                </div>
+                                </div>
+							
+							<div class="bio-slide member-anileen">
+                                    <h1 data-type="member-anileen" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Anileen Pageni</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hey y'all! My name is Anileen Pageni and I am a grade 11 student at Winston Churchill High School. I joined iGem because of my interest in science and being around like- minded people! I spend my free time making people laugh, watching countless movies exploring and trying to be artsy. My favourite aspect of iGem is the human practices because I love getting involved in the community. I also really enjoy the lab work because you learn something new every time. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/sample1a.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You're so hot you denature my proteins.</p></div>
+                                       </div>
+                                       </div>
+                   
+							<div class="bio-slide member-marissa">
+                                    <h1 data-type="member-marissa" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/team/cover/marissa.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Marissa King</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hello my name is Marissa King. I am 16 years old and am in grade 11 at Winston Churchill High School. My favourite subjects at school are biology, English and art. Outside of school I love photography and reading. I joined iGEM this year because the science aspect of it intrigued me and I enjoy getting to work in the lab and learning more about it. After high school I plan on doing something in the medical field maybe paediatrics because I love science and helping people.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/marissa2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You're so hot you make my lab goggles fog up.</p></div>
+                                       </div>
+                                       </div>
+
+							
+							<div class="bio-slide member-ross">
+                                    <h1 data-type="member-ross" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Ross Oliver</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>Hello I'm Ross and I am a grade 10 student at Winston Churchill High School. I was interested in joining iGEM because of the opportunities and knowledge that it would provide me. Prior to joining iGEM I had no lab experience, and had very limited knowledge about synthetic biology. In my free time I enjoy learning new things, cooking and travelling.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/ross2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">Are you copper? Because I Cu in my dreams.</p></div>
+                                       </div>
+                                       </div>
+							
+							<div class="bio-slide member-sunny">
+                                    <h1 data-type="member-sunny" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Sunny Sun</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Sunny Sun and this is my second year in Lethbridge HS iGEM. I joined iGEM due to my interest in science. However, iGEM has allowed me to expand my knowledge and skills in community outreach aspects as well while gaining valuable experience laboratory experience. Outside of iGEM I enjoy volunteering and reading. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/sunny2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">You be the batter, I'll be the aluminum foil and together we will light up the world.</p></div>
+                                       </div>
+                                       </div>
+									   
+							<div class="bio-slide member-landon">
+                                    <h1 data-type="member-landon" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Landon Zanewich</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Landon Zanewich and I am starting grade eleven this year at LCI. My hobbies include playing video games, board games and card games. I also enjoy playing sports like hockey and volleyball. In my free time I enjoy seeing friends or playing games. I have been playing hockey all my life and have been skating for almost as long as I could walk. I joined IGEM because I wanted to see the power that synthetic biology has to change the world for the better. I am still unsure of what career I will pursue in the future, but I am sure that it will involve science.
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/sample1a.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote"> You must be awfully cold because you're 0K in my books.</p></div>
+                                       </div>
+                                       </div>
+									   
+							<div class="bio-slide member-kaatje">
+                                    <h1 data-type="member-kaatje" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Kaatje O'Donnell</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Kaatje and I am in grade 12. This is my first year in iGEM and it has been an experience completely unlike anything else I've done. In the past, I haven't been extremely interested in the sciences, so iGEM has been a great introduction to bio and chem, although I have been more involved in the human practices and ethics side of things. Outside of iGEM, I enjoy competing gymnastics, playing the drums, and writing. I love being a part of iGEM!
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/sample1a.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">If I were an enzyme, I'd be DNA helicase so I could unzip your genes ;)</p></div>
+                                       </div>
+                                       </div>
+									   
+							<div class="bio-slide member-sam">
+                                    <h1 data-type="member-sam" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet Sam Orr</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>My name is Sam, and I have just entered my grade 11 year at LCI. I joined iGEM because it interests me, and because I would like to pursue a job in biochemistry or microbiology. My favourite pastimes include reading, hiking, skiing, and playing the piano. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/sam2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">Do you have eleven protons? 'cause you're sodium fine ;)</p></div>
+                                       </div>
+                                       </div>
+									   
+							<div class="bio-slide member-david">
+                                    <h1 data-type="member-david" class="exit_bio">X</h1>
+									<img class="wideProfilePic" style="" src="images/sample1a.jpg" class="img-responsive" width="230px" height="300px" alt="Image could not load.">
+                               
+                               <div class="bio-slide-content">
+										<h1>Meet David Zhang</h1>
+                                      <div class="row">
+                                <div class="col-md-12">
+                                   <div class="wide_line"></div>
+                                </div>
+                               </div>
+                                   <p>I was born as a lowly honeybee, flying around and drinking nectar all day. Ah! Those were the good old days. I worked hard every day, and I found fulfilment in my day to day life. However, I may have tried a bit too hard. When I died, I was reborn in a human skin. This was a form that I was completely unfamiliar with. With hard work, I eventually managed to learn to move in my new skin. As the years, as I now know them, flew by, I gained more and more skills. I joined iGEM as a chance to gain the knowledge that might one day enable me to craft a honeybee body for myself. I dared not think it when I first joined, but it offered me a tiny hope. So tiny that I dared not believe it. However, fulfilment still eludes me. One day, hopefully, I will be granted the chance to be reborn as a honeybee. Today, however, is not that day. Today is the time to live with what I have, and to enjoy it as much as I can. 
+									</p>  
+								</div>
+								<div class="row">
+                                   <div class="col-md-6">
+								<img src="images/team/sam2.jpg" class="img-thumbnail img-circle img-responsive profile-pic">  
+                                       </div>
+                                       </div>
+                                   <div class="col-md-6">
+                                       <div class="quote_div">
+								<p class="quote">I'm attracted to you so strongly, scientists will have to develop a fifth fundamental force ;)</p></div>
+                                       </div>
+                                       </div>
+									   
+    </body>
+</html>

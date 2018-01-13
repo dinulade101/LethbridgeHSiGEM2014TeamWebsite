@@ -1,0 +1,449 @@
+
+<html lang="en">
+	<head>
+         
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+        	<link id="pageStyle" rel="stylesheet" href="css/mainhj.css" type="text/css" media="screen" />	-->
+        <link id="" rel="stylesheet" href="css/animations.css" type="text/css" media="screen" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+               
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      
+        <script src="js/jquery.localscroll.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.scrollTo.min.js" type="text/javascript"></script>
+
+
+
+            <script type="text/javascript">
+                
+                  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+            
+                
+                   $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top-40
+        },1000);
+        return false;
+      }
+    }
+  });
+});
+                   
+                
+                function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+                
+                function myFunction() {
+                  $("body").addClass("animateBody");  
+                
+                     
+                    
+                     
+                    var cookieValue = null;
+                    cookieValue = getCookie("projectType");
+                       
+                        if (cookieValue=="2"){
+                            
+                             setCookie("projectType", "1", 365);
+                            
+                            makeBees();
+                             
+                        }
+                    if (cookieValue=="1"){
+                           
+                         setCookie("projectType", "2", 365); 
+                        
+                            makeBiofilms();
+                           
+                        }
+                   
+                    
+                   
+                    /************introSLide********************/
+                   
+                    
+                   
+                   
+}
+                function makeBiofilms(){
+                     document.getElementById('pageStyle').setAttribute('href','css/main_biofilms.css');
+                         $("#mainTitleText").text('Biofilms!!!');
+                     $("#coloredTitle").text('Biofilms');
+                    $("#slide1Title").text('Biofilm');
+                    $("#slide1Paragraph").text('For years, bacterial biofilms have been a cause for concern in medicine. Biofilms are comprised of colonial microorganisms that can adhere to almost any surface with adequate moisture and nutrients. Biofilms often harbour pathogens, and can be extremely problematic in clinical settings. 65% of all hospital acquired infections can be attributed to pathogenic biofilms. Current methods to destroy biofilms include antimicrobial agents and hydraulic flushing. These are ineffective because biofilms are surrounded by a matrix of sugars and DNA. We intend to create an all-purpose biological counterattack capable of dispersing and eliminating a wide variety of biofilms by utilizing enzymes to destroy the structures within. This will be achieved through the secretion of dextranase, which degrades the exopolymeric matrix, and DNase, that targets the extracellular DNA responsible for maintaining biofilm structure. This double phased attack will be highly efficient compared to current removal methods.');
+                    document.getElementById("projectIcon").src ="images/Plasmid.png";
+                    document.getElementById("projectSwitchIcon").src = "images/varroa_icon.png";
+                    document.getElementById("slide1Image").src = "images/408.jpg";
+                    $("#mainTitleText").style.color("#31B2DE");
+                }
+                function makeBees(){
+                     document.getElementById('pageStyle').setAttribute('href','css/main.css');
+                         $("#mainTitleText").text('Lethbridge Hihg School iGEM');
+                     $("#coloredTitle").text(' Varoa ');
+                    $("#slide1Title").text('Beeeeee');
+                    $("#slide1Paragraph").text('The top 100 food crops produced provide 90% of the world’s nutrition. 70% of these crops are pollinated by bees. A phenomenon called Colony Collapse Disorder (CCD) has decimated honeybee colonies across the world, halving the number of productive colonies worldwide. One of the main factors hypothesized to contribute to CCD is the mite and viral vector Varroa destructor. While feeding on the bee’s hemolymph, Varroa destructor expels RNA viruses into the bee crippling colony’s strength. Current commercial methods to eradicate Varroa have seen a gradual development of resistance in treated populations. Using synthetic biology, we plan to target Varroa more effectively by directly delivering the miticide, oxalic acid into Varroa and utilizing RNA interference to eliminate Varroa populations within commercial hives.');
+                    document.getElementById("projectIcon").src ="images/varroa_icon.png";
+                    document.getElementById("projectSwitchIcon").src = "images/Plasmid.png";
+                    document.getElementById("slide1Image").src = "images/honeybeeinflight.jpg";
+                    $("#mainTitleText").style.color("#FFE545");
+                }
+                
+                
+                        
+       
+                    $(document).ready(function() {
+                        
+                        $("#projectTitle").addClass("appear");
+    
+                    var s = $(".menu");
+    var pos = s.position();   
+            
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();  
+           
+        if (windowpos >= 100) {
+            
+            s.addClass("makeNavBarColor");
+            
+        } else {
+           
+            s.removeClass("makeNavBarColor");
+            
+        }
+      
+    });  
+                        var cookieVal = getCookie("projectType");
+                       
+                        if (cookieVal=="2"){
+                            makeBiofilms();
+                        }
+                        if (cookieVal=="1"){
+                            makeBees();
+                        }
+                            
+});
+    
+             
+                
+        </script>
+	</head>
+
+	<body id="" >
+        <div class="flash"></div>
+        <div id="darker">
+        <nav class="navbar navbar-inverse navbar-fixed-top menu" id="">
+            <div class="container-fluid">
+               
+                <!--Lethbridge HS iGEM Logo -->
+                <div class="navbar-header">
+                    <a href="#" id="nav-head" class="navbar-brand" style="margin-left:5%; font-family: 'BebasNeau_thin';"><h1 style="font-weight:100; margin-top:2%;">Lethbridge iGEM       </h1></a>
+                
+
+                <button class= "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                </div>
+                <!-- Nav Bar Menu Items -->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right scroll" id="navItems" style="font-weight:105;">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        
+                        <li><a href="humanpractices.html">Human Practices</a></li>
+                        <li class= "dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle = "dropdown">Project<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="project.html">Overview</a>
+                                    <a href="#">Math Model</a>
+                                </li>
+                            </ul>    
+                        </li>
+                        <li><a href="software.html">Software</a></li>
+                        <li ><a href="team.html">Team</a></li>
+                        <li><a href="team.html"><img src="images/Wageningen_UR_igem_bw.png" width="50px" height="45px" style="margin-top:-20%; margin-bottom:-10%;"></a></li>
+                        <li><div  onclick="myFunction()" class="navBarSwitchButton"><img id="projectSwitchIcon" src="images/plainicon.com-48232-512px-7b5.png" class="img-responsive"></div> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <div class="slide1Container">
+                <div class="jumbotron" id="titleSlide">
+                <div class="container-fluid">
+                    
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                <div id="projectTitle">
+                                    <p id="mainTitleText" style="font-family:BebasNeau_thin;"> Lethbridge High School iGEM  <span style="color:#31B2DE;"></span> <br><small><span style="color:#88D648"></span> </small> </p>
+                    
+ 
+                    
+                    <div class="row" style="text-align:center;">  
+                        <div class="col-md-8 col-xs-12 col-sm-9" style="display:inline-block;float:none;">
+                              <p id="subTitleText" style="font-family:BebasNeau_thin;">Eliminating <span id="coloredTitle" style="font-family:boldfont;">Varoa Destructor</span> </p>  
+                            <img id="projectIcon" src="images/plainicon.com-48232-512px-7b5.png" width=200px class="img-responsive" style="margin-left:auto; margin-right:auto; margin-bottom:-1%;">
+                            
+                        </div>
+                    </div> 
+                                    </div>
+                                                                       </div>
+                      </div>
+                              
+                                    
+                    <div class="row" style="margin-left:0%;">
+                        
+                        <div class="col-md-12">
+                         
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="downImgText"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="goDown">
+                            <a href="#firstSlide"><img src="images/arrow_down.png" width="150" height="110" class="img-responsive downImg"></a>
+                            </div>
+                        </div>
+                    </div>        
+            </div>
+            </div>
+        </div>
+        </div>
+        <a name="firstSlide"></a>
+             
+         <div class="jumbotron" id="slide1" style="background-color:#0e83cd">
+                <div class="container-fluid" style="">
+            
+                    <div class="row">
+                        <div clas="col-md-12">
+                            <h1 id="slide1Title" class="slideTitle" style="font-family: BebasNeau_thin;"> Introduction <br><small></small></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-4" style="">
+                            <div class="animatedParent">
+                            <img id="slide1Image" src="images/honeybeeinflight.jpg" height=300px width=400px class="img-responsive regularimg animated  fadeIn slow">
+                            
+                            
+                        </div>
+                            </div>
+                        <div class="col-md-8">
+                      
+            
+                           <div class="animatedParent">
+				
+
+                            <p id="slide1Paragraph" class="animated fadeIn slow">The top 100 food crops produced provide 90% of the world’s nutrition. 70% of these crops are pollinated by bees. A phenomenon called Colony Collapse Disorder (CCD) has decimated honeybee colonies across the world, halving the number of productive colonies worldwide. One of the main factors hypothesized to contribute to CCD is the mite and viral vector Varroa destructor. While feeding on the bee’s hemolymph, Varroa destructor expels RNA viruses into the bee crippling colony’s strength. Current commercial methods to eradicate Varroa have seen a gradual development of resistance in treated populations. Using synthetic biology, we plan to target Varroa more effectively by directly delivering the miticide, oxalic acid into Varroa and utilizing RNA interference to eliminate Varroa populations within commercial hives.</p>
+                    					
+				</div>
+                            
+                        
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 id="slide1Title" class="slideTitle" style="font-family: BebasNeau_thin;"> Aspects of our project <br><small></small></h1>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-dna9"></div>
+                            <p class="tileDescription"> Project</p>
+                             </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-familiar17"></div>
+                            <p class="tileDescription"> Human Practices</p>
+                             </div>
+                        </div>
+                           <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-book228"></div>
+                            <p class="tileDescription"> Notebook</p>
+                             </div>
+                        </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-cone10"></div>
+                            <p class="tileDescription"> Safety</p>
+                             </div>
+                        </div>
+                             <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-smartphone66"></div>
+                            <p class="tileDescription"> Software</p>
+                             </div>
+                        </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-prize3"></div>
+                            <p class="tileDescription"> Achievements</p>
+                             </div>
+                        </div>
+                             <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-businessman276"></div>
+                            <p class="tileDescription"> Team</p>
+                             </div>
+                        </div>
+                             <div class="col-md-3 col-sm-4 col-xs-6">
+                             <div class="tileBorder">
+                            <div class="tile flaticon-brainstorm"></div>
+                            <p class="tileDescription"> Collaborations</p>
+                             </div>
+                        </div>
+
+                        
+                        
+                        </div>
+                    </div>
+                
+                <div class="row">
+                    <div class="slideButton">
+                        <p>Read more</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+        
+        <div class="jumbotron" id="slide2" style="padding:0;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="arrow_down_1"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                            <h1 id="slide1Title" class="slideTitle" style="font-family: BebasNeau_thin;"> How does Oxalic Acid Work? <br><small></small></h1>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/Oxalic-acid-3D-balls.png" height=415       width=500 class="img-responsive regularimg">
+                        </div>
+                        <div class="col-md-6">
+                            <section class="cbp-so-section">
+                            <p class="cbp-so-side cbp-so-side-right">The top 100 food crops produced provide 90% of the world’s nutrition. 70% of these crops are pollinated by bees. A phenomenon called Colony Collapse Disorder (CCD) has decimated honeybee colonies across the world, halving the number of productive colonies worldwide. One of the main factors hypothesized to contribute to CCD is the mite and viral vector Varroa destructor. While feeding on the bee’s hemolymph, Varroa destructor expels RNA viruses into the bee crippling colony’s strength. Current commercial methods to eradicate Varroa have seen a gradual development of resistance in treated populations. Using synthetic biology, we plan to target Varroa more effectively by directly delivering the miticide, oxalic acid into Varroa and utilizing RNA interference to eliminate Varroa populations within commercial hives.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="jumbotron" id="slide3" style="padding:0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="arrow_down_2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                            <h1 id="slide1Title" class="slideTitle" style="font-family: BebasNeau_thin;"> Thanks to our amazing sponsors <br><small></small></h1>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                    </div>
+                     <div class="row" style="margin-top:5%;">
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/Egem_2013_Lethbridge_Geekstarter.png" height=415       width=300 class="img-responsive  sponsorImg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="jumbotron" id="slide4" style="padding:0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="tile">
+                                <img class="img-responsive" src="images/Team%20Icon.png" width="100px" height="100px">
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        <div class="jumbotron" id="slide5" style="padding:0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="arrow_down_2"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-12">
+                            <h1> We are the Lethbridge High School iGEM Team <br><small></small></h1>
+                            <h1><br><br></h1>
+                            <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+        
+        
+        
+        
+                
+		<script>
+			
+		</script>
+                  <script src='js/css3-animate-it.js' type="text/javascript"></script>
+    </body>
+</html>
+
